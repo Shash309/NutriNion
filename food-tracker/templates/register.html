@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block title %}Food Tracker | Registration{% endblock %}
+
+{% block body %}
+<div class='py-4 mt-auto'>
+    <div class='container px-4'>
+
+        <div class='d-flex justify-content-center'>
+            <h3>Register</h3>
+        </div>
+
+        {% if message %}
+            <div class="text-center text-danger pt-1 pb-2">{{ message }}</div>
+        {% endif %}
+
+        <div class='row'>
+            <div class='col-lg-6 offset-lg-3'>
+                <div class='card bg-secondary mb-3'>
+                    <div class='card-body'>
+    
+                        <div class='form-group'>
+
+                            <form action="{% url 'register' %}" method='POST'>
+                                {% csrf_token %}
+                                <div class='form-group'>
+                                    <label for='inputUsername' class='form-label mt-4'>
+                                        Username
+                                    </label>
+                                    <input type='text' name='username' class='form-control' id='inputUsername' placeholder='Enter username' autofocus>
+                                </div>
+
+                                <div class='form-group'>
+                                    <label for='inputEmail' class='form-label mt-4'>
+                                        Email Address
+                                    </label>
+                                    <input type='email' name='email' class='form-control' id='inputEmail' placeholder='Enter email'>
+                                </div>
+
+                                <div class='form-group'>
+                                    <label for='inputPassword1' class='form-label mt-4'>
+                                        Password
+                                    </label>
+                                    <input type='password' name='password' class='form-control' id='inputPassword1' placeholder='Enter password'>
+                                </div>
+
+                                <div class='form-group'>
+                                    <label for='inputPassword2' class='form-label mt-4'>
+                                        Confirm Password
+                                    </label>
+                                    <input type='password' name='confirmation' class='form-control' id='inputPassword2' placeholder='Confirm password'>
+                                </div>
+
+                                <div class='form-group'>
+                                    <label for='inputGender' class='form-label mt-4'>
+                                        Gender
+                                    </label>
+                                    <select name='gender' class='form-control' id='inputGender'>
+                                        <option value='' selected disabled>Select gender</option>
+                                        <option value='Male'>Male</option>
+                                        <option value='Female'>Female</option>
+                                        <option value='Other'>Other</option>
+                                    </select>
+                                </div>
+
+                                <div class='form-group'>
+                                    <label for='inputHeight' class='form-label mt-4'>
+                                        Height (in cm)
+                                    </label>
+                                    <input type='number' name='height' class='form-control' id='inputHeight' placeholder='Enter height in cm' min='0' step='0.1'>
+                                </div>
+
+                                <div class='form-group'>
+                                    <label for='inputWeight' class='form-label mt-4'>
+                                        Weight (in kg)
+                                    </label>
+                                    <input type='number' name='weight' class='form-control' id='inputWeight' placeholder='Enter weight in kg' min='0' step='0.1'>
+                                </div>
+
+                                <div class='form-group'>
+                                    <label for='inputAge' class='form-label mt-4'>
+                                        Age
+                                    </label>
+                                    <input type='number' name='age' class='form-control' id='inputAge' placeholder='Enter age' min='0' step='1'>
+                                </div>
+
+                                <div class='form-group mt-4'>
+                                    <button type='submit' class='btn btn-primary'>
+                                        Register
+                                    </button>
+                                </div>
+
+                            </form>
+
+                            <div class='mt-2'>
+                                Already have an account? <a href="{% url 'login' %}" type='button' class='btn btn-link'>
+                                    Log In here
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
