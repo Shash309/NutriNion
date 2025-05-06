@@ -136,4 +136,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - Nutritionix API for providing nutritional data
 - Django community for the amazing framework
-- Bootstrap for the beautiful UI components 
+- Bootstrap for the beautiful UI components
